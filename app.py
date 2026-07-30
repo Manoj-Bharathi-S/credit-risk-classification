@@ -11,14 +11,19 @@ st.title("Credit Risk Prediction App")
 st.write("Enter applicant information to predict credit risk (Good vs. Bad).")
 
 # User Inputs
-age = st.number_input("Age", min_value=18, max_value=80, value=30)
-sex = st.selectbox("Sex", ["male", "female"])
-job = st.number_input("Job (0 to 3)", min_value=0, max_value=3, value=1)
-housing = st.selectbox("Housing", ["own", "rent", "free"])
-saving = st.selectbox("Saving Accounts", ["little", "moderate", "rich", "quite rich"])
-checking = st.selectbox("Checking Account", ["little", "moderate", "rich"])
-amount = st.number_input("Credit Amount", min_value=0, value=1000)
-duration = st.number_input("Duration (Months)", min_value=1, value=12)
+col1, col2 = st.columns(2)
+
+with col1:
+    age = st.number_input("Age", min_value=18, max_value=80, value=30)
+    job = st.number_input("Job (0 to 3)", min_value=0, max_value=3, value=1)
+    saving = st.selectbox("Saving Accounts", ["little", "moderate", "rich", "quite rich"])
+    amount = st.number_input("Credit Amount", min_value=0, value=1000)
+
+with col2:
+    sex = st.selectbox("Sex", ["male", "female"])
+    housing = st.selectbox("Housing", ["own", "rent", "free"])
+    checking = st.selectbox("Checking Account", ["little", "moderate", "rich"])
+    duration = st.number_input("Duration (Months)", min_value=1, value=12)
 
 if st.button("Predict Risk"):
     # Encode input values
