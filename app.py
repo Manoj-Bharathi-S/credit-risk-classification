@@ -3,7 +3,7 @@ import pandas as pd
 import joblib
 
 # Load artifacts
-model = joblib.load('models/extra_trees_credit_model.pickle')
+model = joblib.load('models/best_model.pickle')
 cols = ['sex', 'housing', 'saving_accounts', 'checking_account']
 encoders = {col: joblib.load(f'models/{col}_encoder.pickle') for col in cols}
 
